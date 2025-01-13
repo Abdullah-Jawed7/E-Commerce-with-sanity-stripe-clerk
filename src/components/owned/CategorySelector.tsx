@@ -42,7 +42,7 @@ const CategorySelector = ({categories}:{categories:Category[]}) => {
                 } 
             }}/>
             <CommandList>
-                <CommandEmpty>No Category Found.</CommandEmpty>
+                <CommandEmpty>No Category Found...</CommandEmpty>
                 <CommandGroup>
                     {categories?.map((category)=>(
                         <CommandItem
