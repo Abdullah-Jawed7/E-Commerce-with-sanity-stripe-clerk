@@ -6,3 +6,8 @@ export const CATEGORY_QUERY= defineQuery(`*[_type == 'category'] | order(name as
 export const PRODUCT_BY_SLUG_QUERY= defineQuery(`*[_type == 'product' && slug.current == $slug] | order(name asc)[0]` )
 export const PRODUCT_SEARCH_QUERY= defineQuery(`*[_type == 'product' && name match $searchParam] | order(name asc)` )
 export const PRODUCT_BY_CATEGORY_QUERY= defineQuery(`*[_type == 'product' && references(*[_type == "category" && slug.current == $categorySlug]._id)] | order(name asc)` )
+export const ORDERS_QUERY=defineQuery(`*[_type=='order' && clerkUserId == $userId] | order(orderData desc){
+    ...,products[]{
+        ...,product->
+        }
+    }`)

@@ -1,5 +1,5 @@
 import { sanityFetch } from "../lib/live";
-import { CATEGORY_QUERY, PRODUCT_BY_CATEGORY_QUERY, PRODUCT_BY_SLUG_QUERY, PRODUCT_QUERY, PRODUCT_SEARCH_QUERY, SALE_QUERY } from "./queries";
+import { CATEGORY_QUERY, ORDERS_QUERY, PRODUCT_BY_CATEGORY_QUERY, PRODUCT_BY_SLUG_QUERY, PRODUCT_QUERY, PRODUCT_SEARCH_QUERY, SALE_QUERY } from "./queries";
 
 export const getSale = async()=>{
     try {
@@ -95,6 +95,23 @@ export const getProductByCategory = async(categorySlug:string)=>{
         return products?.data || [];
     } catch (error) {
         console.error(`Error Fetching Category ${categorySlug} Products`,error);
+        return [];
+
+    }
+}
+export const getOrders = async(userId:string)=>{
+    try {
+        const products = await sanityFetch(
+            {
+                query:ORDERS_QUERY,
+                params:{
+                    userId,
+                }
+            }
+        )
+        return products?.data || [];
+    } catch (error) {
+        console.error(`Error Fetching Orders for User Id: ${userId} `,error);
         return [];
 
     }

@@ -7,12 +7,14 @@ import { cn } from "@/lib/utils";
 import toast from "react-hot-toast";
 import QuantityBtn from "./QuantityBtn";
 import PriceFormatter from "./PriceFormatter";
+import userCartStore from "@/store";
 
 interface Props {
   product: Product;
   className?: string;
 }
 const AddToCartBtn = ({ product, className }: Props) => {
+  const {addItem , getItemCount} = userCartStore();
 const [isClient ,setIsClient] = useState(false);
 useEffect(()=>{
   setIsClient(true);
@@ -22,9 +24,10 @@ if(!isClient)return null
 
 
   const handleAddToCart = () => {
-    toast.success("Product added SuccessFully");
+    addItem(product)
+    toast.success(`${product?.name?.substring(0 ,12)}... added SuccessFully`);
   };
-  const itemCount = 0;
+  const itemCount = getItemCount(product?._id);
   return (
     <div>
       {itemCount ? (
@@ -42,6 +45,7 @@ if(!isClient)return null
        </div>
       ) : (
         <Button
+        disabled={product?.stock == 0}
           onClick={handleAddToCart}
           className={cn(
             "bg-darkBlue/10 text-black border-darkBlue border py-2 mt-2 w-full rounded-md font-medium hover:bg-darkBlue hover:text-white group-hoverEffect disabled:hover:cursor-not-allowed disabled:bg-darkBlue/10 disabled:text-gray-400 disabled:hover:text-gray-400 disabled:border-darkBlue/10",

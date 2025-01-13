@@ -34,7 +34,12 @@ const CategorySelector = ({categories}:{categories:Category[]}) => {
             onKeyDown={(e)=>{
                 if (e.key === 'Enter') {
                     const selectedCategory = categories.find((c)=>c.title?.toLowerCase().includes(e.currentTarget.value.toLowerCase()))
-                } // do this later
+                     if (selectedCategory?.slug?.current) {
+                        setValue(selectedCategory?._id)
+                        router.push(`/categories/${selectedCategory?.slug?.current}`)
+                        setOpen(false)  
+                     }
+                } 
             }}/>
             <CommandList>
                 <CommandEmpty>No Category Found.</CommandEmpty>

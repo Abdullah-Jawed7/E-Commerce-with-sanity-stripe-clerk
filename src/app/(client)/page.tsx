@@ -2,7 +2,6 @@ import Container from "@/components/owned/container";
 import DiscountBanner from "@/components/owned/DiscountBanner";
 import ProductList from "@/components/owned/ProductList";
 import { getAllCategories, getAllProducts, getSale } from "@/sanity/helpers";
-import Image from "next/image";
 
 export default async function Home() {
   const sales = await getSale();
@@ -17,8 +16,8 @@ export default async function Home() {
    <ProductList products={products} categories={categories} title={true}/>
 </Container>
    {/*
-    Part: 4 
-    Time: 30 minutes
+    Part: 7 
+    Time: 0 minutes
    */}
    </>
   );

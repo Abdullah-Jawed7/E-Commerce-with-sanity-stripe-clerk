@@ -1,6 +1,5 @@
 
 import Container from '@/components/owned/container';
-import ProductCard from '@/components/owned/ProductCard';
 import ProductList from '@/components/owned/ProductList';
 import { getAllCategories, getProductByCategory } from '@/sanity/helpers';
 interface Props {

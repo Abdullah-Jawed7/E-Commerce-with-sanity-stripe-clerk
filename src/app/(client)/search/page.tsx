@@ -2,12 +2,12 @@ import Container from '@/components/owned/container';
 import ProductCard from '@/components/owned/ProductCard';
 import { getProductBySearch } from '@/sanity/helpers';
 import React from 'react'
-interface Props {
-    searchParams:{
-        query:string
-    }
-}
-const SearchPage = async ({searchParams}:Props) => {
+// interface Props {
+//     searchParams:Promise<{
+//         query:string
+//     }>
+// }
+const SearchPage = async ({searchParams}:{searchParams:Promise<{query:string}>}) => {
     const {query } = await searchParams;
     const products = await getProductBySearch(query)
     

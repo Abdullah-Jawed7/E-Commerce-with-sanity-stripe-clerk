@@ -40,13 +40,13 @@ import { defineField, defineType } from "sanity";
             name:'email',
             title:'Customer Email',
             type:'string',
-            validation:(Rule)=>Rule.required(),
+            validation:(Rule)=>Rule.required().email(),
         }),
         defineField({
             name:'stripePaymentIntentId',
             title:'Stripe Payment Intent ID',
             type:'string',
-            validation:(Rule)=>Rule.required().email(),
+            validation:(Rule)=>Rule.required(),
         }),
         defineField({
             name:'products',

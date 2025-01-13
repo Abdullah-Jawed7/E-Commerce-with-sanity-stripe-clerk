@@ -10,7 +10,7 @@ const PriceFormatter = ({amount ,className}:Props) => {
   style:'currency',
   minimumFractionDigits:2,
  })
-  return <span className={cn('text-sm font-semibold text-darkText' ,className)}>{formattedPrice}</span>
+  return <span className={cn('text-xs sm:text-sm font-semibold text-darkText' ,className)}>{formattedPrice}</span>
 }
 
 export default PriceFormatter
