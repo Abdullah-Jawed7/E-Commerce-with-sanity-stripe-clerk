@@ -9,7 +9,6 @@ import userCartStore from '@/store'
 interface Props {
     product :Product;
     className?:string;
-    borderStyle?:string;
 }
 const QuantityBtn = ({product ,className }:Props) => {
    const{getItemCount ,addItem ,removeItem} = userCartStore();
