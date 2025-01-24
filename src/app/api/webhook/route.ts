@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   if (!sig) {
     return NextResponse.json({ error: "No Stripe Signature" }, { status: 400 });
   }
-  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+  const webhookSecret = 'whsec_0mh4kBNEe9KCc3WsmMu1uISv0tSJkvfR';
   if (!webhookSecret) {
     console.error("Stripe Webhook secret is not set");
     return NextResponse.json(
