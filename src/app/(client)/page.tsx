@@ -22,3 +22,13 @@ export default async function Home() {
    </>
   );
 }
+// stock management via sanity
+// adding stock in quantity button 
+// Admin dashboard
+// ahmed project review for new ideas
+// Ask gpt for more ideas
+//Add a wishlist page and feature 
+// Order tracking Api using ship Engine
+// Feedback / Customer Review page
+// changing header
+

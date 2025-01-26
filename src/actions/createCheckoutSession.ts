@@ -54,7 +54,6 @@ const customers = await stripe.customers.list({
         quantity:item.quantity
     })),
  };
- console.log(process.env.NEXT_PUBLIC_BASE_URL);
  
  if (customerId) {
     sessionPayload.customer = customerId;
